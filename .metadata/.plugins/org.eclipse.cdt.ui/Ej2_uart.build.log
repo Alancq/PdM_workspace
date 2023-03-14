@@ -1,4 +1,4 @@
-23:19:24 **** Incremental Build of configuration Debug for project Ej2_uart ****
+22:11:58 **** Incremental Build of configuration Debug for project Ej2_uart ****
 make -j16 all 
 arm-none-eabi-size   Ej2_uart.elf 
    text	   data	    bss	    dec	    hex	filename
@@ -6,5 +6,5 @@ arm-none-eabi-size   Ej2_uart.elf
 Finished building: default.size.stdout
  
 
-23:19:24 Build Finished. 0 errors, 0 warnings. (took 175ms)
+22:11:59 Build Finished. 0 errors, 0 warnings. (took 174ms)
 

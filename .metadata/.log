@@ -5724,3 +5724,36 @@ Command-line arguments:  -os linux -ws gtk -arch x86_64
 
 !ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2023-03-16 20:57:12.374
 !MESSAGE Started RMI Server, listening on port 41337
+!SESSION 2023-03-17 23:29:05.704 -----------------------------------------------
+eclipse.buildId=Version 1.11.2
+java.version=11.0.16
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Command-line arguments:  -os linux -ws gtk -arch x86_64
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2023-03-17 23:29:11.334
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2023-03-17 23:29:11.379
+!MESSAGE Log4j initialized with config file /home/alan/embebidos/PdM_workspace/.metadata/.log4j.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2023-03-17 23:29:25.352
+!MESSAGE Started RMI Server, listening on port 41337
+!SESSION 2023-03-18 09:17:53.280 -----------------------------------------------
+eclipse.buildId=Version 1.11.2
+java.version=11.0.16
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Command-line arguments:  -os linux -ws gtk -arch x86_64
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2023-03-18 09:17:57.592
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2023-03-18 09:17:57.637
+!MESSAGE Log4j initialized with config file /home/alan/embebidos/PdM_workspace/.metadata/.log4j.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2023-03-18 09:18:05.727
+!MESSAGE Started RMI Server, listening on port 41337
+
+!ENTRY org.eclipse.cdt.core 1 0 2023-03-18 10:47:51.518
+!MESSAGE Indexed 'practica_3' (99 sources, 209 headers) in 5.53 sec: 29,823 declarations; 90,749 references; 6 unresolved inclusions; 1,836 syntax errors; 1,822 unresolved names (1.5%)

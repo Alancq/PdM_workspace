@@ -23,9 +23,7 @@
 #include "main.h"
 //#include "API_delay.h"
 //#include "API_delay.c"
-#define tiempo_1 100
-#define tiempo_2 500
-#define tiempo_3 1000
+#define TIEMPO 200
 
 /** @addtogroup STM32F4xx_HAL_Examp#include "API_delay.h"les
   * @{
@@ -54,6 +52,7 @@ static void Error_Handler(void);
   * @param  None
   * @retval None
   */
+char Leds[3]={LED1,LED2,LED3};
 int main(void)
 {
   /* STM32F4xx HAL library initialization:
@@ -67,7 +66,7 @@ int main(void)
        - Low Level Initialization
      */
   HAL_Init();
-  delay_t delay_1,delay_2,delay_3;
+  delay_t delay_1;
 
 
   /* Configure the system clock to 180 MHz */
@@ -78,25 +77,16 @@ int main(void)
   BSP_LED_Init(LED2);
   BSP_LED_Init(LED3);
 
-  delayInit(&delay_1,tiempo_1);
-  delayInit(&delay_2,tiempo_2);
-  delayInit(&delay_3,tiempo_3);
+  delayInit(&delay_1,TIEMPO);
 
 
   /* Infinite loop */
   while (1)
   {
-	  if(delayRead(&delay_1)==true){
-		  BSP_LED_Toggle(LED1);
-		  delayInit(&delay_1,tiempo_1);
-	  }
-	  if(delayRead(&delay_2)==true){
-		  BSP_LED_Toggle(LED2);
-		  delayInit(&delay_2,tiempo_2);
-	  }
-	  if(delayRead(&delay_3)==true){
-		  BSP_LED_Toggle(LED3);
-		  delayInit(&delay_3,tiempo_3);
+	  for(int i = 0; i < sizeof(Leds); i++) {
+		  BSP_LED_Toggle(Leds[i]);
+		  delayInit(&delay_1,TIEMPO);
+
 	  }
   }
 }

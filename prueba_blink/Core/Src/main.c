@@ -63,10 +63,15 @@ static void MX_GPIO_Init(void);
   * @retval int
   */
 
-char Leds[3]={LED1,LED2,LED3};
+
 //delay_t Delays[3];
 int main(void)
 {
+	char Leds[3]={LED1,LED2,LED3};
+
+	delay_t Delays;
+	int contIndex=0;
+	bool_t f=true;
 
   /* USER CODE BEGIN 1 */
 
@@ -87,7 +92,7 @@ int main(void)
 
   /* USER CODE BEGIN SysInit */
 
- delay_t Delays;
+  delay_Init(&Delays,TIEMPO);
 
   /* USER CODE END SysInit */
 
@@ -97,10 +102,7 @@ int main(void)
   BSP_LED_Init(LED1);
   BSP_LED_Init(LED2);
   BSP_LED_Init(LED3);
-  delay_Init(&Delays,TIEMPO);
 
-  int contIndex=0;
-  bool_t f=true;
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -120,9 +122,6 @@ int main(void)
 				  contIndex=0;
 			  }
 		  }
-
-
-
 
 
 

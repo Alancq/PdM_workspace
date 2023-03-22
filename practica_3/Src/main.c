@@ -52,10 +52,14 @@ static void Error_Handler(void);
   * @param  None
   * @retval None
   */
-char Leds[3]={LED1,LED2,LED3};
+
 
 int main(void)
 {
+	char Leds[3]={LED1,LED2,LED3};
+	delay_t Delays;
+	int contIndex=0;
+	bool_t f=true;
   /* STM32F4xx HAL library initialization:
        - Configure the Flash prefetch
        - Systick timer is configured by default as source of time base, but user 
@@ -72,14 +76,14 @@ int main(void)
 
   /* Configure the system clock to 180 MHz */
   SystemClock_Config();
-  delay_t Delays;
+
   /* Initialize BSP Led for LED2 */
   BSP_LED_Init(LED1);
   BSP_LED_Init(LED2);
   BSP_LED_Init(LED3);
+  // Iniciando el delay
   delayInit(&Delays,TIEMPO);
-  int contIndex=0;
-  bool_t f=true;
+
 
 
   /* Infinite loop */
@@ -87,11 +91,14 @@ int main(void)
   {
 	  if(delayRead(&Delays)==true){
 		  if(f==true){
+			  //encendiendo el led
 			  BSP_LED_On(Leds[contIndex]);
 			  f=false;
 		  }else if(f==false){
+			  //apagando el led
 			  BSP_LED_Off(Leds[contIndex]);
 			  f=true;
+			  //iterando el array
 			  if(contIndex<(sizeof(Leds)-1)){
 				  contIndex++;
 			  }else{

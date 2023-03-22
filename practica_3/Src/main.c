@@ -53,6 +53,7 @@ static void Error_Handler(void);
   * @retval None
   */
 char Leds[3]={LED1,LED2,LED3};
+
 int main(void)
 {
   /* STM32F4xx HAL library initialization:
@@ -66,27 +67,37 @@ int main(void)
        - Low Level Initialization
      */
   HAL_Init();
-  delay_t delay_1;
+
 
 
   /* Configure the system clock to 180 MHz */
   SystemClock_Config();
-
+  delay_t Delays;
   /* Initialize BSP Led for LED2 */
   BSP_LED_Init(LED1);
   BSP_LED_Init(LED2);
   BSP_LED_Init(LED3);
-
-  delayInit(&delay_1,TIEMPO);
+  delayInit(&Delays,TIEMPO);
+  int contIndex=0;
+  bool_t f=true;
 
 
   /* Infinite loop */
   while (1)
   {
-	  for(int i = 0; i < sizeof(Leds); i++) {
-		  BSP_LED_Toggle(Leds[i]);
-		  delayInit(&delay_1,TIEMPO);
-
+	  if(delayRead(&Delays)==true){
+		  if(f==true){
+			  BSP_LED_On(Leds[contIndex]);
+			  f=false;
+		  }else if(f==false){
+			  BSP_LED_Off(Leds[contIndex]);
+			  f=true;
+			  if(contIndex<(sizeof(Leds)-1)){
+				  contIndex++;
+			  }else{
+				  contIndex=0;
+			  }
+		  }
 	  }
   }
 }

@@ -24,5 +24,6 @@ SUBDIRS := \
 Core/BSP \
 Core/Src \
 Core/Startup \
+Drivers/API/Src \
 Drivers/STM32F7xx_HAL_Driver/Src \
 

@@ -27,8 +27,10 @@ extern "C" {
 #endif
 
 /* Includes ------------------------------------------------------------------*/
+//#include <stdio.h>
 #include "stm32f7xx_hal.h"
 #include "stm32f7xx_nucleo_144.h"
+#include "API_delay.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */

@@ -5,23 +5,23 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
-../Core/BSP/stm32f7xx_nucleo_144.c 
+../Drivers/API/Src/API_delay.c 
 
 OBJS += \
-./Core/BSP/stm32f7xx_nucleo_144.o 
+./Drivers/API/Src/API_delay.o 
 
 C_DEPS += \
-./Core/BSP/stm32f7xx_nucleo_144.d 
+./Drivers/API/Src/API_delay.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes
-Core/BSP/%.o Core/BSP/%.su: ../Core/BSP/%.c Core/BSP/subdir.mk
+Drivers/API/Src/%.o Drivers/API/Src/%.su: ../Drivers/API/Src/%.c Drivers/API/Src/subdir.mk
 	arm-none-eabi-gcc "$<" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F767xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -I"/home/alan/embebidos/PdM_workspace/prueba_blink/Drivers/API/Inc" -I"/home/alan/embebidos/PdM_workspace/prueba_blink/Drivers/API/Src" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "$@"
 
-clean: clean-Core-2f-BSP
+clean: clean-Drivers-2f-API-2f-Src
 
-clean-Core-2f-BSP:
-	-$(RM) ./Core/BSP/stm32f7xx_nucleo_144.d ./Core/BSP/stm32f7xx_nucleo_144.o ./Core/BSP/stm32f7xx_nucleo_144.su
+clean-Drivers-2f-API-2f-Src:
+	-$(RM) ./Drivers/API/Src/API_delay.d ./Drivers/API/Src/API_delay.o ./Drivers/API/Src/API_delay.su
 
-.PHONY: clean-Core-2f-BSP
+.PHONY: clean-Drivers-2f-API-2f-Src
 

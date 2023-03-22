@@ -20,6 +20,8 @@
 #include "main.h"
 
 /* Private includes ----------------------------------------------------------*/
+#define TIEMPO 200
+
 /* USER CODE BEGIN Includes */
 
 /* USER CODE END Includes */
@@ -60,8 +62,12 @@ static void MX_GPIO_Init(void);
   * @brief  The application entry point.
   * @retval int
   */
+
+char Leds[3]={LED1,LED2,LED3};
+//delay_t Delays[3];
 int main(void)
 {
+
   /* USER CODE BEGIN 1 */
 
   /* USER CODE END 1 */
@@ -70,6 +76,7 @@ int main(void)
 
   /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
   HAL_Init();
+
 
   /* USER CODE BEGIN Init */
 
@@ -80,24 +87,47 @@ int main(void)
 
   /* USER CODE BEGIN SysInit */
 
+ delay_t Delays;
+
   /* USER CODE END SysInit */
 
   /* Initialize all configured peripherals */
   //MX_GPIO_Init();
   /* USER CODE BEGIN 2 */
+  BSP_LED_Init(LED1);
   BSP_LED_Init(LED2);
+  BSP_LED_Init(LED3);
+  delay_Init(&Delays,TIEMPO);
 
+  int contIndex=0;
+  bool_t f=true;
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-	  BSP_LED_Toggle(LED2);
-	  HAL_Delay(2000);
-    /* USER CODE END WHILE */
+	  if(delayRead(&Delays)==true){
+		  if(f==true){
+			  BSP_LED_On(Leds[contIndex]);
+			  f=false;
+		  }else if(f==false){
+			  BSP_LED_Off(Leds[contIndex]);
+			  f=true;
+			  if(contIndex<(sizeof(Leds)-1)){
+				  contIndex++;
+			  }else{
+				  contIndex=0;
+			  }
+		  }
 
-    /* USER CODE BEGIN 3 */
+
+
+
+
+
+	  }
+
   }
   /* USER CODE END 3 */
 }

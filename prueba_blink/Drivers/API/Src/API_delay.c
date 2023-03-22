@@ -5,7 +5,7 @@
  *      Author: Alan Cornejo
  */
 #include "API_delay.h"
-void delayInit( delay_t * delay, tick_t duration ){
+void delay_Init( delay_t * delay, tick_t duration ){
 
 	  delay->duration=duration;
 	  delay->running=false;

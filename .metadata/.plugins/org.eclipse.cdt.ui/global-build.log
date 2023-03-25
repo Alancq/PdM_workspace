@@ -1,14 +1,946 @@
-00:29:21 **** Incremental Build of configuration Debug for project prueba_blink ****
+11:01:09 **** Incremental Build of configuration Debug for project nucleoF767_tp4 ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F767xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -I"/home/alan/embebidos/PdM_workspace/nucleoF767_tp4/Drivers/API/Inc" -I"/home/alan/embebidos/PdM_workspace/nucleoF767_tp4/Drivers/API/Src" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:106:3: warning: implicit declaration of function 'debounceFSM_init' [-Wimplicit-function-declaration]
+  106 |   debounceFSM_init();
+      |   ^~~~~~~~~~~~~~~~
+../Core/Src/main.c:111:4: warning: implicit declaration of function 'debounceFSM_update' [-Wimplicit-function-declaration]
+  111 |    debounceFSM_update();
+      |    ^~~~~~~~~~~~~~~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:116:6: warning: conflicting types for 'debounceFSM_init'
+  116 | void debounceFSM_init()  // debe cargar el estado inicial
+      |      ^~~~~~~~~~~~~~~~
+../Core/Src/main.c:106:3: note: previous implicit declaration of 'debounceFSM_init' was here
+  106 |   debounceFSM_init();
+      |   ^~~~~~~~~~~~~~~~
+../Core/Src/main.c:121:6: warning: conflicting types for 'debounceFSM_update'
+  121 | void debounceFSM_update() // debe leer las entradas, resolver la lógica de
+      |      ^~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:111:4: note: previous implicit declaration of 'debounceFSM_update' was here
+  111 |    debounceFSM_update();
+      |    ^~~~~~~~~~~~~~~~~~
+../Core/Src/main.c: In function 'debounceFSM_update':
+../Core/Src/main.c:126:6: warning: implicit declaration of function 'BSP_PB_GetSate'; did you mean 'BSP_PB_GetState'? [-Wimplicit-function-declaration]
+  126 |   if(BSP_PB_GetSate(BUTTON_USER)==true){
+      |      ^~~~~~~~~~~~~~
+      |      BSP_PB_GetState
+../Core/Src/main.c:127:19: error: 'FALLING' undeclared (first use in this function)
+  127 |    buttonDebounce=FALLING;
+      |                   ^~~~~~~
+../Core/Src/main.c:127:19: note: each undeclared identifier is reported only once for each function it appears in
+At top level:
+../Core/Src/main.c:198:13: warning: 'MX_GPIO_Init' defined but not used [-Wunused-function]
+  198 | static void MX_GPIO_Init(void)
+      |             ^~~~~~~~~~~~
+make: *** [Core/Src/subdir.mk:34: Core/Src/main.o] Error 1
+"make -j16 all" terminated with exit code 2. Build might be incomplete.
+11:02:47 **** Incremental Build of configuration Debug for project Ej0_blinky ****
+make -j16 all 
+arm-none-eabi-size   Ej0_blinky.elf 
+   text	   data	    bss	    dec	    hex	filename
+   6312	     32	   1568	   7912	   1ee8	Ej0_blinky.elf
+Finished building: default.size.stdout
+ 
+11:02:47 **** Incremental Build of configuration Debug for project Ej1_pushButton ****
+make -j16 all 
+arm-none-eabi-size   Ej1_pushButton.elf 
+   text	   data	    bss	    dec	    hex	filename
+   6640	     36	   1572	   8248	   2038	Ej1_pushButton.elf
+Finished building: default.size.stdout
+ 
+11:02:47 **** Incremental Build of configuration Debug for project Ej2_uart ****
+make -j16 all 
+arm-none-eabi-size   Ej2_uart.elf 
+   text	   data	    bss	    dec	    hex	filename
+  13308	    132	   1660	  15100	   3afc	Ej2_uart.elf
+Finished building: default.size.stdout
+ 
+11:02:47 **** Incremental Build of configuration Debug for project Ejercicio_delayNB_1 ****
+make -j16 all 
+arm-none-eabi-size   Ejercicio_delayNB_1.elf 
+   text	   data	    bss	    dec	    hex	filename
+   6400	     32	   1568	   8000	   1f40	Ejercicio_delayNB_1.elf
+Finished building: default.size.stdout
+ 
+11:02:48 **** Incremental Build of configuration Debug for project i2c_F767 ****
+make -j16 all 
+arm-none-eabi-size   i2c_F767.elf 
+   text	   data	    bss	    dec	    hex	filename
+  12348	     20	   1788	  14156	   374c	i2c_F767.elf
+Finished building: default.size.stdout
+ 
+11:02:48 **** Incremental Build of configuration Debug for project nucleoF767_tp4 ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F767xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -I"/home/alan/embebidos/PdM_workspace/nucleoF767_tp4/Drivers/API/Inc" -I"/home/alan/embebidos/PdM_workspace/nucleoF767_tp4/Drivers/API/Src" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:106:3: warning: implicit declaration of function 'debounceFSM_init' [-Wimplicit-function-declaration]
+  106 |   debounceFSM_init();
+      |   ^~~~~~~~~~~~~~~~
+../Core/Src/main.c:111:4: warning: implicit declaration of function 'debounceFSM_update' [-Wimplicit-function-declaration]
+  111 |    debounceFSM_update();
+      |    ^~~~~~~~~~~~~~~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:116:6: warning: conflicting types for 'debounceFSM_init'
+  116 | void debounceFSM_init()  // debe cargar el estado inicial
+      |      ^~~~~~~~~~~~~~~~
+../Core/Src/main.c:106:3: note: previous implicit declaration of 'debounceFSM_init' was here
+  106 |   debounceFSM_init();
+      |   ^~~~~~~~~~~~~~~~
+../Core/Src/main.c:121:6: warning: conflicting types for 'debounceFSM_update'
+  121 | void debounceFSM_update() // debe leer las entradas, resolver la lógica de
+      |      ^~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:111:4: note: previous implicit declaration of 'debounceFSM_update' was here
+  111 |    debounceFSM_update();
+      |    ^~~~~~~~~~~~~~~~~~
+../Core/Src/main.c: In function 'debounceFSM_update':
+../Core/Src/main.c:126:6: warning: implicit declaration of function 'BSP_PB_GetSate'; did you mean 'BSP_PB_GetState'? [-Wimplicit-function-declaration]
+  126 |   if(BSP_PB_GetSate(BUTTON_USER)==true){
+      |      ^~~~~~~~~~~~~~
+      |      BSP_PB_GetState
+At top level:
+../Core/Src/main.c:198:13: warning: 'MX_GPIO_Init' defined but not used [-Wunused-function]
+  198 | static void MX_GPIO_Init(void)
+      |             ^~~~~~~~~~~~
+arm-none-eabi-gcc -o "nucleoF767_tp4.elf" @"objects.list"   -mcpu=cortex-m7 -T"/home/alan/embebidos/PdM_workspace/nucleoF767_tp4/STM32F767ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="nucleoF767_tp4.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+/opt/st/stm32cubeide_1.11.2/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.linux64_1.0.100.202210260954/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/bin/ld: ./Core/Src/main.o: in function `debounceFSM_update':
+/home/alan/embebidos/PdM_workspace/nucleoF767_tp4/Debug/../Core/Src/main.c:126: undefined reference to `BSP_PB_GetSate'
+collect2: error: ld returned 1 exit status
+make: *** [makefile:66: nucleoF767_tp4.elf] Error 1
+"make -j16 all" terminated with exit code 2. Build might be incomplete.
+11:02:48 **** Incremental Build of configuration Debug for project practica_1_Ej_1 ****
+make -j16 all 
+arm-none-eabi-size   practica_1_Ej_1.elf 
+   text	   data	    bss	    dec	    hex	filename
+   6268	     36	   1572	   7876	   1ec4	practica_1_Ej_1.elf
+Finished building: default.size.stdout
+ 
+11:02:48 **** Incremental Build of configuration Debug for project practica_1_Ej_2 ****
+make -j16 all 
+arm-none-eabi-size   practica_1_Ej_2.elf 
+   text	   data	    bss	    dec	    hex	filename
+   6752	     40	   1568	   8360	   20a8	practica_1_Ej_2.elf
+Finished building: default.size.stdout
+ 
+11:02:49 **** Incremental Build of configuration Debug for project practica_2_Ej_1 ****
+make -j16 all 
+arm-none-eabi-size   practica_2_Ej_1.elf 
+   text	   data	    bss	    dec	    hex	filename
+   6380	     32	   1568	   7980	   1f2c	practica_2_Ej_1.elf
+Finished building: default.size.stdout
+ 
+11:02:49 **** Incremental Build of configuration Debug for project practica_2_Ej_2 ****
+make -j16 all 
+arm-none-eabi-size   practica_2_Ej_2.elf 
+   text	   data	    bss	    dec	    hex	filename
+   6488	     32	   1568	   8088	   1f98	practica_2_Ej_2.elf
+Finished building: default.size.stdout
+ 
+11:02:49 **** Incremental Build of configuration Debug for project practica_3 ****
+make -j16 all 
+arm-none-eabi-size   practica_3.elf 
+   text	   data	    bss	    dec	    hex	filename
+   6440	     32	   1568	   8040	   1f68	practica_3.elf
+Finished building: default.size.stdout
+ 
+11:02:49 **** Incremental Build of configuration Debug for project prueba_blink ****
 make -j16 all 
 arm-none-eabi-size   prueba_blink.elf 
    text	   data	    bss	    dec	    hex	filename
    6416	     32	   1568	   8016	   1f50	prueba_blink.elf
 Finished building: default.size.stdout
  
-00:29:23 **** Incremental Build of configuration Debug for project prueba_blink ****
+11:03:00 **** Incremental Build of configuration Debug for project Ej0_blinky ****
+make -j16 all 
+arm-none-eabi-size   Ej0_blinky.elf 
+   text	   data	    bss	    dec	    hex	filename
+   6312	     32	   1568	   7912	   1ee8	Ej0_blinky.elf
+Finished building: default.size.stdout
+ 
+11:03:00 **** Incremental Build of configuration Debug for project Ej1_pushButton ****
+make -j16 all 
+arm-none-eabi-size   Ej1_pushButton.elf 
+   text	   data	    bss	    dec	    hex	filename
+   6640	     36	   1572	   8248	   2038	Ej1_pushButton.elf
+Finished building: default.size.stdout
+ 
+11:03:01 **** Incremental Build of configuration Debug for project Ej2_uart ****
+make -j16 all 
+arm-none-eabi-size   Ej2_uart.elf 
+   text	   data	    bss	    dec	    hex	filename
+  13308	    132	   1660	  15100	   3afc	Ej2_uart.elf
+Finished building: default.size.stdout
+ 
+11:03:01 **** Incremental Build of configuration Debug for project Ejercicio_delayNB_1 ****
+make -j16 all 
+arm-none-eabi-size   Ejercicio_delayNB_1.elf 
+   text	   data	    bss	    dec	    hex	filename
+   6400	     32	   1568	   8000	   1f40	Ejercicio_delayNB_1.elf
+Finished building: default.size.stdout
+ 
+11:03:01 **** Incremental Build of configuration Debug for project i2c_F767 ****
+make -j16 all 
+arm-none-eabi-size   i2c_F767.elf 
+   text	   data	    bss	    dec	    hex	filename
+  12348	     20	   1788	  14156	   374c	i2c_F767.elf
+Finished building: default.size.stdout
+ 
+11:03:01 **** Incremental Build of configuration Debug for project nucleoF767_tp4 ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F767xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -I"/home/alan/embebidos/PdM_workspace/nucleoF767_tp4/Drivers/API/Inc" -I"/home/alan/embebidos/PdM_workspace/nucleoF767_tp4/Drivers/API/Src" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:106:3: warning: implicit declaration of function 'debounceFSM_init' [-Wimplicit-function-declaration]
+  106 |   debounceFSM_init();
+      |   ^~~~~~~~~~~~~~~~
+../Core/Src/main.c:111:4: warning: implicit declaration of function 'debounceFSM_update' [-Wimplicit-function-declaration]
+  111 |    debounceFSM_update();
+      |    ^~~~~~~~~~~~~~~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:116:6: warning: conflicting types for 'debounceFSM_init'
+  116 | void debounceFSM_init()  // debe cargar el estado inicial
+      |      ^~~~~~~~~~~~~~~~
+../Core/Src/main.c:106:3: note: previous implicit declaration of 'debounceFSM_init' was here
+  106 |   debounceFSM_init();
+      |   ^~~~~~~~~~~~~~~~
+../Core/Src/main.c:121:6: warning: conflicting types for 'debounceFSM_update'
+  121 | void debounceFSM_update() // debe leer las entradas, resolver la lógica de
+      |      ^~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:111:4: note: previous implicit declaration of 'debounceFSM_update' was here
+  111 |    debounceFSM_update();
+      |    ^~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:198:13: warning: 'MX_GPIO_Init' defined but not used [-Wunused-function]
+  198 | static void MX_GPIO_Init(void)
+      |             ^~~~~~~~~~~~
+arm-none-eabi-gcc -o "nucleoF767_tp4.elf" @"objects.list"   -mcpu=cortex-m7 -T"/home/alan/embebidos/PdM_workspace/nucleoF767_tp4/STM32F767ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="nucleoF767_tp4.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: nucleoF767_tp4.elf
+ 
+arm-none-eabi-size   nucleoF767_tp4.elf 
+arm-none-eabi-objdump -h -S  nucleoF767_tp4.elf  > "nucleoF767_tp4.list"
+   text	   data	    bss	    dec	    hex	filename
+   6664	     36	   1588	   8288	   2060	nucleoF767_tp4.elf
+Finished building: default.size.stdout
+ 
+Finished building: nucleoF767_tp4.list
+ 
+11:03:01 **** Incremental Build of configuration Debug for project practica_1_Ej_1 ****
+make -j16 all 
+arm-none-eabi-size   practica_1_Ej_1.elf 
+   text	   data	    bss	    dec	    hex	filename
+   6268	     36	   1572	   7876	   1ec4	practica_1_Ej_1.elf
+Finished building: default.size.stdout
+ 
+11:03:02 **** Incremental Build of configuration Debug for project practica_1_Ej_2 ****
+make -j16 all 
+arm-none-eabi-size   practica_1_Ej_2.elf 
+   text	   data	    bss	    dec	    hex	filename
+   6752	     40	   1568	   8360	   20a8	practica_1_Ej_2.elf
+Finished building: default.size.stdout
+ 
+11:03:02 **** Incremental Build of configuration Debug for project practica_2_Ej_1 ****
+make -j16 all 
+arm-none-eabi-size   practica_2_Ej_1.elf 
+   text	   data	    bss	    dec	    hex	filename
+   6380	     32	   1568	   7980	   1f2c	practica_2_Ej_1.elf
+Finished building: default.size.stdout
+ 
+11:03:02 **** Incremental Build of configuration Debug for project practica_2_Ej_2 ****
+make -j16 all 
+arm-none-eabi-size   practica_2_Ej_2.elf 
+   text	   data	    bss	    dec	    hex	filename
+   6488	     32	   1568	   8088	   1f98	practica_2_Ej_2.elf
+Finished building: default.size.stdout
+ 
+11:03:02 **** Incremental Build of configuration Debug for project practica_3 ****
+make -j16 all 
+arm-none-eabi-size   practica_3.elf 
+   text	   data	    bss	    dec	    hex	filename
+   6440	     32	   1568	   8040	   1f68	practica_3.elf
+Finished building: default.size.stdout
+ 
+11:03:03 **** Incremental Build of configuration Debug for project prueba_blink ****
 make -j16 all 
 arm-none-eabi-size   prueba_blink.elf 
    text	   data	    bss	    dec	    hex	filename
    6416	     32	   1568	   8016	   1f50	prueba_blink.elf
+Finished building: default.size.stdout
+ 
+11:10:30 **** Incremental Build of configuration Debug for project Ej0_blinky ****
+make -j16 all 
+arm-none-eabi-size   Ej0_blinky.elf 
+   text	   data	    bss	    dec	    hex	filename
+   6312	     32	   1568	   7912	   1ee8	Ej0_blinky.elf
+Finished building: default.size.stdout
+ 
+11:10:31 **** Incremental Build of configuration Debug for project Ej1_pushButton ****
+make -j16 all 
+arm-none-eabi-size   Ej1_pushButton.elf 
+   text	   data	    bss	    dec	    hex	filename
+   6640	     36	   1572	   8248	   2038	Ej1_pushButton.elf
+Finished building: default.size.stdout
+ 
+11:10:31 **** Incremental Build of configuration Debug for project Ej2_uart ****
+make -j16 all 
+arm-none-eabi-size   Ej2_uart.elf 
+   text	   data	    bss	    dec	    hex	filename
+  13308	    132	   1660	  15100	   3afc	Ej2_uart.elf
+Finished building: default.size.stdout
+ 
+11:10:31 **** Incremental Build of configuration Debug for project Ejercicio_delayNB_1 ****
+make -j16 all 
+arm-none-eabi-size   Ejercicio_delayNB_1.elf 
+   text	   data	    bss	    dec	    hex	filename
+   6400	     32	   1568	   8000	   1f40	Ejercicio_delayNB_1.elf
+Finished building: default.size.stdout
+ 
+11:10:31 **** Incremental Build of configuration Debug for project i2c_F767 ****
+make -j16 all 
+arm-none-eabi-size   i2c_F767.elf 
+   text	   data	    bss	    dec	    hex	filename
+  12348	     20	   1788	  14156	   374c	i2c_F767.elf
+Finished building: default.size.stdout
+ 
+11:10:32 **** Incremental Build of configuration Debug for project nucleoF767_tp4 ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F767xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -I"/home/alan/embebidos/PdM_workspace/nucleoF767_tp4/Drivers/API/Inc" -I"/home/alan/embebidos/PdM_workspace/nucleoF767_tp4/Drivers/API/Src" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:106:3: warning: implicit declaration of function 'debounceFSM_init' [-Wimplicit-function-declaration]
+  106 |   debounceFSM_init();
+      |   ^~~~~~~~~~~~~~~~
+../Core/Src/main.c:111:4: warning: implicit declaration of function 'debounceFSM_update' [-Wimplicit-function-declaration]
+  111 |    debounceFSM_update();
+      |    ^~~~~~~~~~~~~~~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:116:6: warning: conflicting types for 'debounceFSM_init'
+  116 | void debounceFSM_init()  // debe cargar el estado inicial
+      |      ^~~~~~~~~~~~~~~~
+../Core/Src/main.c:106:3: note: previous implicit declaration of 'debounceFSM_init' was here
+  106 |   debounceFSM_init();
+      |   ^~~~~~~~~~~~~~~~
+../Core/Src/main.c:121:6: warning: conflicting types for 'debounceFSM_update'
+  121 | void debounceFSM_update() // debe leer las entradas, resolver la lógica de
+      |      ^~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:111:4: note: previous implicit declaration of 'debounceFSM_update' was here
+  111 |    debounceFSM_update();
+      |    ^~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:205:13: warning: 'MX_GPIO_Init' defined but not used [-Wunused-function]
+  205 | static void MX_GPIO_Init(void)
+      |             ^~~~~~~~~~~~
+arm-none-eabi-gcc -o "nucleoF767_tp4.elf" @"objects.list"   -mcpu=cortex-m7 -T"/home/alan/embebidos/PdM_workspace/nucleoF767_tp4/STM32F767ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="nucleoF767_tp4.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: nucleoF767_tp4.elf
+ 
+arm-none-eabi-size   nucleoF767_tp4.elf 
+arm-none-eabi-objdump -h -S  nucleoF767_tp4.elf  > "nucleoF767_tp4.list"
+   text	   data	    bss	    dec	    hex	filename
+   6732	     36	   1588	   8356	   20a4	nucleoF767_tp4.elf
+Finished building: default.size.stdout
+ 
+Finished building: nucleoF767_tp4.list
+ 
+11:10:32 **** Incremental Build of configuration Debug for project practica_1_Ej_1 ****
+make -j16 all 
+arm-none-eabi-size   practica_1_Ej_1.elf 
+   text	   data	    bss	    dec	    hex	filename
+   6268	     36	   1572	   7876	   1ec4	practica_1_Ej_1.elf
+Finished building: default.size.stdout
+ 
+11:10:32 **** Incremental Build of configuration Debug for project practica_1_Ej_2 ****
+make -j16 all 
+arm-none-eabi-size   practica_1_Ej_2.elf 
+   text	   data	    bss	    dec	    hex	filename
+   6752	     40	   1568	   8360	   20a8	practica_1_Ej_2.elf
+Finished building: default.size.stdout
+ 
+11:10:32 **** Incremental Build of configuration Debug for project practica_2_Ej_1 ****
+make -j16 all 
+arm-none-eabi-size   practica_2_Ej_1.elf 
+   text	   data	    bss	    dec	    hex	filename
+   6380	     32	   1568	   7980	   1f2c	practica_2_Ej_1.elf
+Finished building: default.size.stdout
+ 
+11:10:33 **** Incremental Build of configuration Debug for project practica_2_Ej_2 ****
+make -j16 all 
+arm-none-eabi-size   practica_2_Ej_2.elf 
+   text	   data	    bss	    dec	    hex	filename
+   6488	     32	   1568	   8088	   1f98	practica_2_Ej_2.elf
+Finished building: default.size.stdout
+ 
+11:10:33 **** Incremental Build of configuration Debug for project practica_3 ****
+make -j16 all 
+arm-none-eabi-size   practica_3.elf 
+   text	   data	    bss	    dec	    hex	filename
+   6440	     32	   1568	   8040	   1f68	practica_3.elf
+Finished building: default.size.stdout
+ 
+11:10:33 **** Incremental Build of configuration Debug for project prueba_blink ****
+make -j16 all 
+arm-none-eabi-size   prueba_blink.elf 
+   text	   data	    bss	    dec	    hex	filename
+   6416	     32	   1568	   8016	   1f50	prueba_blink.elf
+Finished building: default.size.stdout
+ 
+11:27:45 **** Incremental Build of configuration Debug for project nucleoF767_tp4 ****
+make -j16 all 
+arm-none-eabi-size   nucleoF767_tp4.elf 
+   text	   data	    bss	    dec	    hex	filename
+   6732	     36	   1588	   8356	   20a4	nucleoF767_tp4.elf
+Finished building: default.size.stdout
+ 
+11:29:49 **** Incremental Build of configuration Debug for project Ej0_blinky ****
+make -j16 all 
+arm-none-eabi-size   Ej0_blinky.elf 
+   text	   data	    bss	    dec	    hex	filename
+   6312	     32	   1568	   7912	   1ee8	Ej0_blinky.elf
+Finished building: default.size.stdout
+ 
+11:29:49 **** Incremental Build of configuration Debug for project Ej1_pushButton ****
+make -j16 all 
+arm-none-eabi-size   Ej1_pushButton.elf 
+   text	   data	    bss	    dec	    hex	filename
+   6640	     36	   1572	   8248	   2038	Ej1_pushButton.elf
+Finished building: default.size.stdout
+ 
+11:29:49 **** Incremental Build of configuration Debug for project Ej2_uart ****
+make -j16 all 
+arm-none-eabi-size   Ej2_uart.elf 
+   text	   data	    bss	    dec	    hex	filename
+  13308	    132	   1660	  15100	   3afc	Ej2_uart.elf
+Finished building: default.size.stdout
+ 
+11:29:50 **** Incremental Build of configuration Debug for project Ejercicio_delayNB_1 ****
+make -j16 all 
+arm-none-eabi-size   Ejercicio_delayNB_1.elf 
+   text	   data	    bss	    dec	    hex	filename
+   6400	     32	   1568	   8000	   1f40	Ejercicio_delayNB_1.elf
+Finished building: default.size.stdout
+ 
+11:29:50 **** Incremental Build of configuration Debug for project i2c_F767 ****
+make -j16 all 
+arm-none-eabi-size   i2c_F767.elf 
+   text	   data	    bss	    dec	    hex	filename
+  12348	     20	   1788	  14156	   374c	i2c_F767.elf
+Finished building: default.size.stdout
+ 
+11:29:50 **** Incremental Build of configuration Debug for project nucleoF767_tp4 ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F767xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -I"/home/alan/embebidos/PdM_workspace/nucleoF767_tp4/Drivers/API/Inc" -I"/home/alan/embebidos/PdM_workspace/nucleoF767_tp4/Drivers/API/Src" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c:217:13: warning: 'MX_GPIO_Init' defined but not used [-Wunused-function]
+  217 | static void MX_GPIO_Init(void)
+      |             ^~~~~~~~~~~~
+../Core/Src/main.c:167:6: warning: 'buttonReleased' defined but not used [-Wunused-function]
+  167 | void buttonReleased()  // debe invertir el estado del LED3
+      |      ^~~~~~~~~~~~~~
+../Core/Src/main.c:163:6: warning: 'buttonPressed' defined but not used [-Wunused-function]
+  163 | void buttonPressed()   // debe invertir el estado del LED1
+      |      ^~~~~~~~~~~~~
+arm-none-eabi-gcc -o "nucleoF767_tp4.elf" @"objects.list"   -mcpu=cortex-m7 -T"/home/alan/embebidos/PdM_workspace/nucleoF767_tp4/STM32F767ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="nucleoF767_tp4.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: nucleoF767_tp4.elf
+ 
+arm-none-eabi-size   nucleoF767_tp4.elf 
+arm-none-eabi-objdump -h -S  nucleoF767_tp4.elf  > "nucleoF767_tp4.list"
+   text	   data	    bss	    dec	    hex	filename
+   6732	     36	   1588	   8356	   20a4	nucleoF767_tp4.elf
+Finished building: default.size.stdout
+ 
+Finished building: nucleoF767_tp4.list
+ 
+11:29:50 **** Incremental Build of configuration Debug for project practica_1_Ej_1 ****
+make -j16 all 
+arm-none-eabi-size   practica_1_Ej_1.elf 
+   text	   data	    bss	    dec	    hex	filename
+   6268	     36	   1572	   7876	   1ec4	practica_1_Ej_1.elf
+Finished building: default.size.stdout
+ 
+11:29:51 **** Incremental Build of configuration Debug for project practica_1_Ej_2 ****
+make -j16 all 
+arm-none-eabi-size   practica_1_Ej_2.elf 
+   text	   data	    bss	    dec	    hex	filename
+   6752	     40	   1568	   8360	   20a8	practica_1_Ej_2.elf
+Finished building: default.size.stdout
+ 
+11:29:51 **** Incremental Build of configuration Debug for project practica_2_Ej_1 ****
+make -j16 all 
+arm-none-eabi-size   practica_2_Ej_1.elf 
+   text	   data	    bss	    dec	    hex	filename
+   6380	     32	   1568	   7980	   1f2c	practica_2_Ej_1.elf
+Finished building: default.size.stdout
+ 
+11:29:51 **** Incremental Build of configuration Debug for project practica_2_Ej_2 ****
+make -j16 all 
+arm-none-eabi-size   practica_2_Ej_2.elf 
+   text	   data	    bss	    dec	    hex	filename
+   6488	     32	   1568	   8088	   1f98	practica_2_Ej_2.elf
+Finished building: default.size.stdout
+ 
+11:29:51 **** Incremental Build of configuration Debug for project practica_3 ****
+make -j16 all 
+arm-none-eabi-size   practica_3.elf 
+   text	   data	    bss	    dec	    hex	filename
+   6440	     32	   1568	   8040	   1f68	practica_3.elf
+Finished building: default.size.stdout
+ 
+11:29:51 **** Incremental Build of configuration Debug for project prueba_blink ****
+make -j16 all 
+arm-none-eabi-size   prueba_blink.elf 
+   text	   data	    bss	    dec	    hex	filename
+   6416	     32	   1568	   8016	   1f50	prueba_blink.elf
+Finished building: default.size.stdout
+ 
+11:30:01 **** Incremental Build of configuration Debug for project Ej0_blinky ****
+make -j16 all 
+arm-none-eabi-size   Ej0_blinky.elf 
+   text	   data	    bss	    dec	    hex	filename
+   6312	     32	   1568	   7912	   1ee8	Ej0_blinky.elf
+Finished building: default.size.stdout
+ 
+11:30:01 **** Incremental Build of configuration Debug for project Ej1_pushButton ****
+make -j16 all 
+arm-none-eabi-size   Ej1_pushButton.elf 
+   text	   data	    bss	    dec	    hex	filename
+   6640	     36	   1572	   8248	   2038	Ej1_pushButton.elf
+Finished building: default.size.stdout
+ 
+11:30:02 **** Incremental Build of configuration Debug for project Ej2_uart ****
+make -j16 all 
+arm-none-eabi-size   Ej2_uart.elf 
+   text	   data	    bss	    dec	    hex	filename
+  13308	    132	   1660	  15100	   3afc	Ej2_uart.elf
+Finished building: default.size.stdout
+ 
+11:30:02 **** Incremental Build of configuration Debug for project Ejercicio_delayNB_1 ****
+make -j16 all 
+arm-none-eabi-size   Ejercicio_delayNB_1.elf 
+   text	   data	    bss	    dec	    hex	filename
+   6400	     32	   1568	   8000	   1f40	Ejercicio_delayNB_1.elf
+Finished building: default.size.stdout
+ 
+11:30:02 **** Incremental Build of configuration Debug for project i2c_F767 ****
+make -j16 all 
+arm-none-eabi-size   i2c_F767.elf 
+   text	   data	    bss	    dec	    hex	filename
+  12348	     20	   1788	  14156	   374c	i2c_F767.elf
+Finished building: default.size.stdout
+ 
+11:30:02 **** Incremental Build of configuration Debug for project nucleoF767_tp4 ****
+make -j16 all 
+arm-none-eabi-size   nucleoF767_tp4.elf 
+   text	   data	    bss	    dec	    hex	filename
+   6732	     36	   1588	   8356	   20a4	nucleoF767_tp4.elf
+Finished building: default.size.stdout
+ 
+11:30:02 **** Incremental Build of configuration Debug for project practica_1_Ej_1 ****
+make -j16 all 
+arm-none-eabi-size   practica_1_Ej_1.elf 
+   text	   data	    bss	    dec	    hex	filename
+   6268	     36	   1572	   7876	   1ec4	practica_1_Ej_1.elf
+Finished building: default.size.stdout
+ 
+11:30:03 **** Incremental Build of configuration Debug for project practica_1_Ej_2 ****
+make -j16 all 
+arm-none-eabi-size   practica_1_Ej_2.elf 
+   text	   data	    bss	    dec	    hex	filename
+   6752	     40	   1568	   8360	   20a8	practica_1_Ej_2.elf
+Finished building: default.size.stdout
+ 
+11:30:03 **** Incremental Build of configuration Debug for project practica_2_Ej_1 ****
+make -j16 all 
+arm-none-eabi-size   practica_2_Ej_1.elf 
+   text	   data	    bss	    dec	    hex	filename
+   6380	     32	   1568	   7980	   1f2c	practica_2_Ej_1.elf
+Finished building: default.size.stdout
+ 
+11:30:03 **** Incremental Build of configuration Debug for project practica_2_Ej_2 ****
+make -j16 all 
+arm-none-eabi-size   practica_2_Ej_2.elf 
+   text	   data	    bss	    dec	    hex	filename
+   6488	     32	   1568	   8088	   1f98	practica_2_Ej_2.elf
+Finished building: default.size.stdout
+ 
+11:30:03 **** Incremental Build of configuration Debug for project practica_3 ****
+make -j16 all 
+arm-none-eabi-size   practica_3.elf 
+   text	   data	    bss	    dec	    hex	filename
+   6440	     32	   1568	   8040	   1f68	practica_3.elf
+Finished building: default.size.stdout
+ 
+11:30:04 **** Incremental Build of configuration Debug for project prueba_blink ****
+make -j16 all 
+arm-none-eabi-size   prueba_blink.elf 
+   text	   data	    bss	    dec	    hex	filename
+   6416	     32	   1568	   8016	   1f50	prueba_blink.elf
+Finished building: default.size.stdout
+ 
+11:30:05 **** Incremental Build of configuration Debug for project nucleoF767_tp4 ****
+make -j16 all 
+arm-none-eabi-size   nucleoF767_tp4.elf 
+   text	   data	    bss	    dec	    hex	filename
+   6732	     36	   1588	   8356	   20a4	nucleoF767_tp4.elf
+Finished building: default.size.stdout
+ 
+11:31:43 **** Incremental Build of configuration Debug for project Ej0_blinky ****
+make -j16 all 
+arm-none-eabi-size   Ej0_blinky.elf 
+   text	   data	    bss	    dec	    hex	filename
+   6312	     32	   1568	   7912	   1ee8	Ej0_blinky.elf
+Finished building: default.size.stdout
+ 
+11:31:43 **** Incremental Build of configuration Debug for project Ej1_pushButton ****
+make -j16 all 
+arm-none-eabi-size   Ej1_pushButton.elf 
+   text	   data	    bss	    dec	    hex	filename
+   6640	     36	   1572	   8248	   2038	Ej1_pushButton.elf
+Finished building: default.size.stdout
+ 
+11:31:43 **** Incremental Build of configuration Debug for project Ej2_uart ****
+make -j16 all 
+arm-none-eabi-size   Ej2_uart.elf 
+   text	   data	    bss	    dec	    hex	filename
+  13308	    132	   1660	  15100	   3afc	Ej2_uart.elf
+Finished building: default.size.stdout
+ 
+11:31:43 **** Incremental Build of configuration Debug for project Ejercicio_delayNB_1 ****
+make -j16 all 
+arm-none-eabi-size   Ejercicio_delayNB_1.elf 
+   text	   data	    bss	    dec	    hex	filename
+   6400	     32	   1568	   8000	   1f40	Ejercicio_delayNB_1.elf
+Finished building: default.size.stdout
+ 
+11:31:44 **** Incremental Build of configuration Debug for project i2c_F767 ****
+make -j16 all 
+arm-none-eabi-size   i2c_F767.elf 
+   text	   data	    bss	    dec	    hex	filename
+  12348	     20	   1788	  14156	   374c	i2c_F767.elf
+Finished building: default.size.stdout
+ 
+11:31:44 **** Incremental Build of configuration Debug for project nucleoF767_tp4 ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F767xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -I"/home/alan/embebidos/PdM_workspace/nucleoF767_tp4/Drivers/API/Inc" -I"/home/alan/embebidos/PdM_workspace/nucleoF767_tp4/Drivers/API/Src" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'debounceFSM_update':
+../Core/Src/main.c:161:5: error: 'buttonDebonce' undeclared (first use in this function); did you mean 'buttonDebounce'?
+  161 |     buttonDebonce=BUTTON_DOWN;
+      |     ^~~~~~~~~~~~~
+      |     buttonDebounce
+../Core/Src/main.c:161:5: note: each undeclared identifier is reported only once for each function it appears in
+At top level:
+../Core/Src/main.c:221:13: warning: 'MX_GPIO_Init' defined but not used [-Wunused-function]
+  221 | static void MX_GPIO_Init(void)
+      |             ^~~~~~~~~~~~
+../Core/Src/main.c:171:6: warning: 'buttonReleased' defined but not used [-Wunused-function]
+  171 | void buttonReleased()  // debe invertir el estado del LED3
+      |      ^~~~~~~~~~~~~~
+../Core/Src/main.c:167:6: warning: 'buttonPressed' defined but not used [-Wunused-function]
+  167 | void buttonPressed()   // debe invertir el estado del LED1
+      |      ^~~~~~~~~~~~~
+make: *** [Core/Src/subdir.mk:34: Core/Src/main.o] Error 1
+"make -j16 all" terminated with exit code 2. Build might be incomplete.
+11:31:44 **** Incremental Build of configuration Debug for project practica_1_Ej_1 ****
+make -j16 all 
+arm-none-eabi-size   practica_1_Ej_1.elf 
+   text	   data	    bss	    dec	    hex	filename
+   6268	     36	   1572	   7876	   1ec4	practica_1_Ej_1.elf
+Finished building: default.size.stdout
+ 
+11:31:44 **** Incremental Build of configuration Debug for project practica_1_Ej_2 ****
+make -j16 all 
+arm-none-eabi-size   practica_1_Ej_2.elf 
+   text	   data	    bss	    dec	    hex	filename
+   6752	     40	   1568	   8360	   20a8	practica_1_Ej_2.elf
+Finished building: default.size.stdout
+ 
+11:31:44 **** Incremental Build of configuration Debug for project practica_2_Ej_1 ****
+make -j16 all 
+arm-none-eabi-size   practica_2_Ej_1.elf 
+   text	   data	    bss	    dec	    hex	filename
+   6380	     32	   1568	   7980	   1f2c	practica_2_Ej_1.elf
+Finished building: default.size.stdout
+ 
+11:31:45 **** Incremental Build of configuration Debug for project practica_2_Ej_2 ****
+make -j16 all 
+arm-none-eabi-size   practica_2_Ej_2.elf 
+   text	   data	    bss	    dec	    hex	filename
+   6488	     32	   1568	   8088	   1f98	practica_2_Ej_2.elf
+Finished building: default.size.stdout
+ 
+11:31:45 **** Incremental Build of configuration Debug for project practica_3 ****
+make -j16 all 
+arm-none-eabi-size   practica_3.elf 
+   text	   data	    bss	    dec	    hex	filename
+   6440	     32	   1568	   8040	   1f68	practica_3.elf
+Finished building: default.size.stdout
+ 
+11:31:45 **** Incremental Build of configuration Debug for project prueba_blink ****
+make -j16 all 
+arm-none-eabi-size   prueba_blink.elf 
+   text	   data	    bss	    dec	    hex	filename
+   6416	     32	   1568	   8016	   1f50	prueba_blink.elf
+Finished building: default.size.stdout
+ 
+11:31:47 **** Incremental Build of configuration Debug for project nucleoF767_tp4 ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F767xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -I"/home/alan/embebidos/PdM_workspace/nucleoF767_tp4/Drivers/API/Inc" -I"/home/alan/embebidos/PdM_workspace/nucleoF767_tp4/Drivers/API/Src" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'debounceFSM_update':
+../Core/Src/main.c:161:5: error: 'buttonDebonce' undeclared (first use in this function); did you mean 'buttonDebounce'?
+  161 |     buttonDebonce=BUTTON_DOWN;
+      |     ^~~~~~~~~~~~~
+      |     buttonDebounce
+../Core/Src/main.c:161:5: note: each undeclared identifier is reported only once for each function it appears in
+At top level:
+../Core/Src/main.c:221:13: warning: 'MX_GPIO_Init' defined but not used [-Wunused-function]
+  221 | static void MX_GPIO_Init(void)
+      |             ^~~~~~~~~~~~
+../Core/Src/main.c:171:6: warning: 'buttonReleased' defined but not used [-Wunused-function]
+  171 | void buttonReleased()  // debe invertir el estado del LED3
+      |      ^~~~~~~~~~~~~~
+../Core/Src/main.c:167:6: warning: 'buttonPressed' defined but not used [-Wunused-function]
+  167 | void buttonPressed()   // debe invertir el estado del LED1
+      |      ^~~~~~~~~~~~~
+make: *** [Core/Src/subdir.mk:34: Core/Src/main.o] Error 1
+"make -j16 all" terminated with exit code 2. Build might be incomplete.
+11:31:56 **** Incremental Build of configuration Debug for project Ej0_blinky ****
+make -j16 all 
+arm-none-eabi-size   Ej0_blinky.elf 
+   text	   data	    bss	    dec	    hex	filename
+   6312	     32	   1568	   7912	   1ee8	Ej0_blinky.elf
+Finished building: default.size.stdout
+ 
+11:31:56 **** Incremental Build of configuration Debug for project Ej1_pushButton ****
+make -j16 all 
+arm-none-eabi-size   Ej1_pushButton.elf 
+   text	   data	    bss	    dec	    hex	filename
+   6640	     36	   1572	   8248	   2038	Ej1_pushButton.elf
+Finished building: default.size.stdout
+ 
+11:31:56 **** Incremental Build of configuration Debug for project Ej2_uart ****
+make -j16 all 
+arm-none-eabi-size   Ej2_uart.elf 
+   text	   data	    bss	    dec	    hex	filename
+  13308	    132	   1660	  15100	   3afc	Ej2_uart.elf
+Finished building: default.size.stdout
+ 
+11:31:56 **** Incremental Build of configuration Debug for project Ejercicio_delayNB_1 ****
+make -j16 all 
+arm-none-eabi-size   Ejercicio_delayNB_1.elf 
+   text	   data	    bss	    dec	    hex	filename
+   6400	     32	   1568	   8000	   1f40	Ejercicio_delayNB_1.elf
+Finished building: default.size.stdout
+ 
+11:31:57 **** Incremental Build of configuration Debug for project i2c_F767 ****
+make -j16 all 
+arm-none-eabi-size   i2c_F767.elf 
+   text	   data	    bss	    dec	    hex	filename
+  12348	     20	   1788	  14156	   374c	i2c_F767.elf
+Finished building: default.size.stdout
+ 
+11:31:57 **** Incremental Build of configuration Debug for project nucleoF767_tp4 ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F767xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -I"/home/alan/embebidos/PdM_workspace/nucleoF767_tp4/Drivers/API/Inc" -I"/home/alan/embebidos/PdM_workspace/nucleoF767_tp4/Drivers/API/Src" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c:221:13: warning: 'MX_GPIO_Init' defined but not used [-Wunused-function]
+  221 | static void MX_GPIO_Init(void)
+      |             ^~~~~~~~~~~~
+../Core/Src/main.c:171:6: warning: 'buttonReleased' defined but not used [-Wunused-function]
+  171 | void buttonReleased()  // debe invertir el estado del LED3
+      |      ^~~~~~~~~~~~~~
+../Core/Src/main.c:167:6: warning: 'buttonPressed' defined but not used [-Wunused-function]
+  167 | void buttonPressed()   // debe invertir el estado del LED1
+      |      ^~~~~~~~~~~~~
+arm-none-eabi-gcc -o "nucleoF767_tp4.elf" @"objects.list"   -mcpu=cortex-m7 -T"/home/alan/embebidos/PdM_workspace/nucleoF767_tp4/STM32F767ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="nucleoF767_tp4.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: nucleoF767_tp4.elf
+ 
+arm-none-eabi-size   nucleoF767_tp4.elf 
+arm-none-eabi-objdump -h -S  nucleoF767_tp4.elf  > "nucleoF767_tp4.list"
+   text	   data	    bss	    dec	    hex	filename
+   6748	     36	   1588	   8372	   20b4	nucleoF767_tp4.elf
+Finished building: default.size.stdout
+ 
+Finished building: nucleoF767_tp4.list
+ 
+11:31:57 **** Incremental Build of configuration Debug for project practica_1_Ej_1 ****
+make -j16 all 
+arm-none-eabi-size   practica_1_Ej_1.elf 
+   text	   data	    bss	    dec	    hex	filename
+   6268	     36	   1572	   7876	   1ec4	practica_1_Ej_1.elf
+Finished building: default.size.stdout
+ 
+11:31:57 **** Incremental Build of configuration Debug for project practica_1_Ej_2 ****
+make -j16 all 
+arm-none-eabi-size   practica_1_Ej_2.elf 
+   text	   data	    bss	    dec	    hex	filename
+   6752	     40	   1568	   8360	   20a8	practica_1_Ej_2.elf
+Finished building: default.size.stdout
+ 
+11:31:58 **** Incremental Build of configuration Debug for project practica_2_Ej_1 ****
+make -j16 all 
+arm-none-eabi-size   practica_2_Ej_1.elf 
+   text	   data	    bss	    dec	    hex	filename
+   6380	     32	   1568	   7980	   1f2c	practica_2_Ej_1.elf
+Finished building: default.size.stdout
+ 
+11:31:58 **** Incremental Build of configuration Debug for project practica_2_Ej_2 ****
+make -j16 all 
+arm-none-eabi-size   practica_2_Ej_2.elf 
+   text	   data	    bss	    dec	    hex	filename
+   6488	     32	   1568	   8088	   1f98	practica_2_Ej_2.elf
+Finished building: default.size.stdout
+ 
+11:31:58 **** Incremental Build of configuration Debug for project practica_3 ****
+make -j16 all 
+arm-none-eabi-size   practica_3.elf 
+   text	   data	    bss	    dec	    hex	filename
+   6440	     32	   1568	   8040	   1f68	practica_3.elf
+Finished building: default.size.stdout
+ 
+11:31:58 **** Incremental Build of configuration Debug for project prueba_blink ****
+make -j16 all 
+arm-none-eabi-size   prueba_blink.elf 
+   text	   data	    bss	    dec	    hex	filename
+   6416	     32	   1568	   8016	   1f50	prueba_blink.elf
+Finished building: default.size.stdout
+ 
+11:32:00 **** Incremental Build of configuration Debug for project nucleoF767_tp4 ****
+make -j16 all 
+arm-none-eabi-size   nucleoF767_tp4.elf 
+   text	   data	    bss	    dec	    hex	filename
+   6748	     36	   1588	   8372	   20b4	nucleoF767_tp4.elf
+Finished building: default.size.stdout
+ 
+11:35:19 **** Incremental Build of configuration Debug for project Ej0_blinky ****
+make -j16 all 
+arm-none-eabi-size   Ej0_blinky.elf 
+   text	   data	    bss	    dec	    hex	filename
+   6312	     32	   1568	   7912	   1ee8	Ej0_blinky.elf
+Finished building: default.size.stdout
+ 
+11:35:19 **** Incremental Build of configuration Debug for project Ej1_pushButton ****
+make -j16 all 
+arm-none-eabi-size   Ej1_pushButton.elf 
+   text	   data	    bss	    dec	    hex	filename
+   6640	     36	   1572	   8248	   2038	Ej1_pushButton.elf
+Finished building: default.size.stdout
+ 
+11:35:19 **** Incremental Build of configuration Debug for project Ej2_uart ****
+make -j16 all 
+arm-none-eabi-size   Ej2_uart.elf 
+   text	   data	    bss	    dec	    hex	filename
+  13308	    132	   1660	  15100	   3afc	Ej2_uart.elf
+Finished building: default.size.stdout
+ 
+11:35:19 **** Incremental Build of configuration Debug for project Ejercicio_delayNB_1 ****
+make -j16 all 
+arm-none-eabi-size   Ejercicio_delayNB_1.elf 
+   text	   data	    bss	    dec	    hex	filename
+   6400	     32	   1568	   8000	   1f40	Ejercicio_delayNB_1.elf
+Finished building: default.size.stdout
+ 
+11:35:20 **** Incremental Build of configuration Debug for project i2c_F767 ****
+make -j16 all 
+arm-none-eabi-size   i2c_F767.elf 
+   text	   data	    bss	    dec	    hex	filename
+  12348	     20	   1788	  14156	   374c	i2c_F767.elf
+Finished building: default.size.stdout
+ 
+11:35:20 **** Incremental Build of configuration Debug for project nucleoF767_tp4 ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F767xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -I"/home/alan/embebidos/PdM_workspace/nucleoF767_tp4/Drivers/API/Inc" -I"/home/alan/embebidos/PdM_workspace/nucleoF767_tp4/Drivers/API/Src" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:106:3: warning: implicit declaration of function 'debounceFSM_init' [-Wimplicit-function-declaration]
+  106 |   debounceFSM_init();
+      |   ^~~~~~~~~~~~~~~~
+../Core/Src/main.c:111:4: warning: implicit declaration of function 'debounceFSM_update' [-Wimplicit-function-declaration]
+  111 |    debounceFSM_update();
+      |    ^~~~~~~~~~~~~~~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:116:6: warning: conflicting types for 'debounceFSM_init'
+  116 | void debounceFSM_init()  // debe cargar el estado inicial
+      |      ^~~~~~~~~~~~~~~~
+../Core/Src/main.c:106:3: note: previous implicit declaration of 'debounceFSM_init' was here
+  106 |   debounceFSM_init();
+      |   ^~~~~~~~~~~~~~~~
+../Core/Src/main.c:121:6: warning: conflicting types for 'debounceFSM_update'
+  121 | void debounceFSM_update() // debe leer las entradas, resolver la lógica de
+      |      ^~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:111:4: note: previous implicit declaration of 'debounceFSM_update' was here
+  111 |    debounceFSM_update();
+      |    ^~~~~~~~~~~~~~~~~~
+../Core/Src/main.c: In function 'debounceFSM_update':
+../Core/Src/main.c:134:5: warning: implicit declaration of function 'buttonPressed' [-Wimplicit-function-declaration]
+  134 |     buttonPressed();
+      |     ^~~~~~~~~~~~~
+../Core/Src/main.c:149:5: warning: implicit declaration of function 'buttonReleased' [-Wimplicit-function-declaration]
+  149 |     buttonReleased();
+      |     ^~~~~~~~~~~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:157:6: warning: conflicting types for 'buttonPressed'
+  157 | void buttonPressed()   // debe invertir el estado del LED1
+      |      ^~~~~~~~~~~~~
+../Core/Src/main.c:134:5: note: previous implicit declaration of 'buttonPressed' was here
+  134 |     buttonPressed();
+      |     ^~~~~~~~~~~~~
+../Core/Src/main.c:161:6: warning: conflicting types for 'buttonReleased'
+  161 | void buttonReleased()  // debe invertir el estado del LED3
+      |      ^~~~~~~~~~~~~~
+../Core/Src/main.c:149:5: note: previous implicit declaration of 'buttonReleased' was here
+  149 |     buttonReleased();
+      |     ^~~~~~~~~~~~~~
+../Core/Src/main.c:211:13: warning: 'MX_GPIO_Init' defined but not used [-Wunused-function]
+  211 | static void MX_GPIO_Init(void)
+      |             ^~~~~~~~~~~~
+arm-none-eabi-gcc -o "nucleoF767_tp4.elf" @"objects.list"   -mcpu=cortex-m7 -T"/home/alan/embebidos/PdM_workspace/nucleoF767_tp4/STM32F767ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="nucleoF767_tp4.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: nucleoF767_tp4.elf
+ 
+arm-none-eabi-size   nucleoF767_tp4.elf 
+arm-none-eabi-objdump -h -S  nucleoF767_tp4.elf  > "nucleoF767_tp4.list"
+   text	   data	    bss	    dec	    hex	filename
+   6888	     36	   1588	   8512	   2140	nucleoF767_tp4.elf
+Finished building: default.size.stdout
+ 
+Finished building: nucleoF767_tp4.list
+ 
+11:35:20 **** Incremental Build of configuration Debug for project practica_1_Ej_1 ****
+make -j16 all 
+arm-none-eabi-size   practica_1_Ej_1.elf 
+   text	   data	    bss	    dec	    hex	filename
+   6268	     36	   1572	   7876	   1ec4	practica_1_Ej_1.elf
+Finished building: default.size.stdout
+ 
+11:35:20 **** Incremental Build of configuration Debug for project practica_1_Ej_2 ****
+make -j16 all 
+arm-none-eabi-size   practica_1_Ej_2.elf 
+   text	   data	    bss	    dec	    hex	filename
+   6752	     40	   1568	   8360	   20a8	practica_1_Ej_2.elf
+Finished building: default.size.stdout
+ 
+11:35:21 **** Incremental Build of configuration Debug for project practica_2_Ej_1 ****
+make -j16 all 
+arm-none-eabi-size   practica_2_Ej_1.elf 
+   text	   data	    bss	    dec	    hex	filename
+   6380	     32	   1568	   7980	   1f2c	practica_2_Ej_1.elf
+Finished building: default.size.stdout
+ 
+11:35:21 **** Incremental Build of configuration Debug for project practica_2_Ej_2 ****
+make -j16 all 
+arm-none-eabi-size   practica_2_Ej_2.elf 
+   text	   data	    bss	    dec	    hex	filename
+   6488	     32	   1568	   8088	   1f98	practica_2_Ej_2.elf
+Finished building: default.size.stdout
+ 
+11:35:21 **** Incremental Build of configuration Debug for project practica_3 ****
+make -j16 all 
+arm-none-eabi-size   practica_3.elf 
+   text	   data	    bss	    dec	    hex	filename
+   6440	     32	   1568	   8040	   1f68	practica_3.elf
+Finished building: default.size.stdout
+ 
+11:35:21 **** Incremental Build of configuration Debug for project prueba_blink ****
+make -j16 all 
+arm-none-eabi-size   prueba_blink.elf 
+   text	   data	    bss	    dec	    hex	filename
+   6416	     32	   1568	   8016	   1f50	prueba_blink.elf
+Finished building: default.size.stdout
+ 
+11:35:24 **** Incremental Build of configuration Debug for project nucleoF767_tp4 ****
+make -j16 all 
+arm-none-eabi-size   nucleoF767_tp4.elf 
+   text	   data	    bss	    dec	    hex	filename
+   6888	     36	   1588	   8512	   2140	nucleoF767_tp4.elf
 Finished building: default.size.stdout
  

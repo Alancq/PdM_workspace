@@ -138,13 +138,13 @@ void debounceFSM_update()	// debe leer las entradas, resolver la lógica de
 		}
 		break;
 	case BUTTON_DOWN:
-		if(BSP_PB_GetState(BUTTON_USER)==true){
+		if(!BSP_PB_GetState(BUTTON_USER)==true){
 			buttonDebounce=BUTTON_RAISING;
 		}
 		break;
 	case BUTTON_RAISING:
 		if(delayRead(&AntiRebote)==true){
-			if(BSP_PB_GetState(BUTTON_USER)){
+			if(!BSP_PB_GetState(BUTTON_USER)){
 				buttonDebounce=BUTTON_UP;
 				buttonReleased();
 			}else{

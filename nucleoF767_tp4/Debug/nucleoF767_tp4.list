@@ -738,11 +738,11 @@ void debounceFSM_update()	// debe leer las entradas, resolver la lógica de
 		break;
  800078a:	e021      	b.n	80007d0 <debounceFSM_update+0xa8>
 	case BUTTON_DOWN:
-		if(BSP_PB_GetState(BUTTON_USER)==true){
+		if(!BSP_PB_GetState(BUTTON_USER)==true){
  800078c:	2000      	movs	r0, #0
  800078e:	f7ff ff8f 	bl	80006b0 <BSP_PB_GetState>
  8000792:	4603      	mov	r3, r0
- 8000794:	2b01      	cmp	r3, #1
+ 8000794:	2b00      	cmp	r3, #0
  8000796:	d11d      	bne.n	80007d4 <debounceFSM_update+0xac>
 			buttonDebounce=BUTTON_RAISING;
  8000798:	4b11      	ldr	r3, [pc, #68]	; (80007e0 <debounceFSM_update+0xb8>)
@@ -758,12 +758,12 @@ void debounceFSM_update()	// debe leer las entradas, resolver la lógica de
  80007a6:	4603      	mov	r3, r0
  80007a8:	2b00      	cmp	r3, #0
  80007aa:	d015      	beq.n	80007d8 <debounceFSM_update+0xb0>
-			if(BSP_PB_GetState(BUTTON_USER)){
+			if(!BSP_PB_GetState(BUTTON_USER)){
  80007ac:	2000      	movs	r0, #0
  80007ae:	f7ff ff7f 	bl	80006b0 <BSP_PB_GetState>
  80007b2:	4603      	mov	r3, r0
  80007b4:	2b00      	cmp	r3, #0
- 80007b6:	d005      	beq.n	80007c4 <debounceFSM_update+0x9c>
+ 80007b6:	d105      	bne.n	80007c4 <debounceFSM_update+0x9c>
 				buttonDebounce=BUTTON_UP;
  80007b8:	4b09      	ldr	r3, [pc, #36]	; (80007e0 <debounceFSM_update+0xb8>)
  80007ba:	2200      	movs	r2, #0

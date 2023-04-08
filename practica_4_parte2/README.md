@@ -1,3 +1,3 @@
-Práctica 3 
+Práctica 4 
 Autor: E. Alan Cornejo
-Objetivo:Implementar un módulo de software para trabajar con retardos no bloqueantes a partir de las funciones creadas en la práctica 2.
+Objetivo:Implementar un MEF para trabajar con anti-rebotes por software. 

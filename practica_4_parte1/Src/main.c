@@ -124,36 +124,38 @@ void debounceFSM_init()		// debe cargar el estado inicial
 void debounceFSM_update()	// debe leer las entradas, resolver la lógica de
 					// transición de estados y actualizar las salidas
 {
-	switch(buttonDebounce){
+	switch(buttonDebounce){ //realizo el switch case
 	case BUTTON_UP:
-		if(BSP_PB_GetState(BUTTON_USER)==true){
-			buttonDebounce=BUTTON_FALLING;
+		if(BSP_PB_GetState(BUTTON_USER)==true){ // si se presiona el boton
+			buttonDebounce=BUTTON_FALLING;		//va al button falling
 		}
 		break;
 	case BUTTON_FALLING:
 		if(delayRead(&AntiRebote)==true){
-			if(BSP_PB_GetState(BUTTON_USER)){
-				buttonDebounce=BUTTON_DOWN;
-				buttonPressed();
+			if(BSP_PB_GetState(BUTTON_USER)){//hago el antirebote y veo el estado del botton
+				buttonDebounce=BUTTON_DOWN;	 // voy al button down
+				buttonPressed();	//y mando a la funcion button pressed que ensendera un led
 			}else{
-				buttonDebounce=BUTTON_UP;
+				buttonDebounce=BUTTON_UP; //retorna al button up
 			}
 		}
 		break;
 	case BUTTON_DOWN:
-		if(!BSP_PB_GetState(BUTTON_USER)==true){
-			buttonDebounce=BUTTON_RAISING;
+		if(!BSP_PB_GetState(BUTTON_USER)==true){ //veo el negado del estado del button user
+			buttonDebounce=BUTTON_RAISING; //voy a button raising
 		}
 		break;
 	case BUTTON_RAISING:
-		if(delayRead(&AntiRebote)==true){
+		if(!delayRead(&AntiRebote)==true){
 			if(!BSP_PB_GetState(BUTTON_USER)){
-				buttonDebounce=BUTTON_UP;
-				buttonReleased();
+				buttonDebounce=BUTTON_UP;//paso al button up
+				buttonReleased(); //voy a la funcion de liberacion del pulsador que prendera otro led
 			}else{
 				buttonDebounce=BUTTON_DOWN;
 			}
 		}
+		break;
+	default:
 		break;
 	}
 }

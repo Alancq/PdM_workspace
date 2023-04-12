@@ -90,7 +90,9 @@ int main(void)
 	/* Initialize delay structure and run it */
 	delayInit(&Delays, LEDSEC1);
 	delayRead(&Delays);
-
+	if(!uartInit()) {
+					Error_Handler();
+				}
 	/* Infinite loop */
 	while (1)
 	{

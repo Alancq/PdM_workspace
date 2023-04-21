@@ -7,6 +7,8 @@
 #include "API_max30205.h"
 #include "API_uart.h"
 #include "API_delay.h"
+
+// Definiciones de constantes y variables
 #define PTIME 500
 #define QTIME 5000
 I2C_HandleTypeDef hi2c;
@@ -15,22 +17,25 @@ I2C_HandleTypeDef hi2c;
 #define PLAY 'p'
 #define QUIT 'q'
 
+// Variables para almacenar información de los tiempos de espera
 static delay_t delay;
 static delay_t delay2;
+
+// Inicializa la máquina de estados finitos (FSM) de lectura
 void lecturaFSM_init(){
 	i2c_init(&hi2c);
-	/* pone el estado inicial a BUTTON UP*/
 	currentState = IDLE_STATE;
-	/*configura la estructura del delay*/
 	delayInit(&delay, PTIME);
 	delayInit(&delay2, QTIME);
 
 }
 
+// Inicializa el sensor MAX30205
 uint8_t max30205_init(I2C_HandleTypeDef *hi2c) {
     return i2c_check_device(hi2c, MAX30205_ADDRESS);
 }
 
+// Lee la temperatura del sensor MAX30205
 float max30205_read_temperature(I2C_HandleTypeDef *hi2c) {
     uint8_t data[2];
     i2c_read(hi2c, MAX30205_ADDRESS, MAX30205_TEMP_REG, data, 2);
@@ -57,7 +62,6 @@ void lecturaFSM_update() {
             	if (delayRead(&delay)){
             		float temperature = max30205_read_temperature(&hi2c);
             		uartSendString((uint8_t *)QMSG);
-            		//uartSendString((uint8_t *)"Temperature: ");
             		uartSendFloat(temperature);
             		uartSendString((uint8_t *)" C\r\n");
             	}
@@ -82,7 +86,7 @@ void i2c_init(I2C_HandleTypeDef *hi2c) {
 	HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
 
 	hi2c->Instance = I2C1;
-	hi2c->Init.Timing = 0x00503D5A; // Configuración de Timing para 400 kHz
+	hi2c->Init.Timing = 0x2010091A; // Configuración de Timing para 400 kHz
 	hi2c->Init.OwnAddress1 = 0;
 	hi2c->Init.AddressingMode = I2C_ADDRESSINGMODE_7BIT;
 	hi2c->Init.DualAddressMode = I2C_DUALADDRESS_DISABLE;

@@ -2005,23 +2005,21 @@ bool_t delayRead( delay_t * delay ){
  8001052:	bd80      	pop	{r7, pc}
 
 08001054 <lecturaFSM_init>:
-#define PLAY 'p'
-#define QUIT 'q'
-
+// Variables para almacenar información de los tiempos de espera
 static delay_t delay;
 static delay_t delay2;
+
+// Inicializa la máquina de estados finitos (FSM) de lectura
 void lecturaFSM_init(){
  8001054:	b580      	push	{r7, lr}
  8001056:	af00      	add	r7, sp, #0
 	i2c_init(&hi2c);
  8001058:	4808      	ldr	r0, [pc, #32]	; (800107c <lecturaFSM_init+0x28>)
  800105a:	f000 f89d 	bl	8001198 <i2c_init>
-	/* pone el estado inicial a BUTTON UP*/
 	currentState = IDLE_STATE;
  800105e:	4b08      	ldr	r3, [pc, #32]	; (8001080 <lecturaFSM_init+0x2c>)
  8001060:	2200      	movs	r2, #0
  8001062:	701a      	strb	r2, [r3, #0]
-	/*configura la estructura del delay*/
 	delayInit(&delay, PTIME);
  8001064:	f44f 71fa 	mov.w	r1, #500	; 0x1f4
  8001068:	4806      	ldr	r0, [pc, #24]	; (8001084 <lecturaFSM_init+0x30>)
@@ -2040,11 +2038,11 @@ void lecturaFSM_init(){
  8001088:	20000270 	.word	0x20000270
 
 0800108c <max30205_read_temperature>:
-
 uint8_t max30205_init(I2C_HandleTypeDef *hi2c) {
     return i2c_check_device(hi2c, MAX30205_ADDRESS);
 }
 
+// Lee la temperatura del sensor MAX30205
 float max30205_read_temperature(I2C_HandleTypeDef *hi2c) {
  800108c:	b580      	push	{r7, lr}
  800108e:	b086      	sub	sp, #24
@@ -2140,7 +2138,7 @@ void lecturaFSM_update() {
  800112e:	4b12      	ldr	r3, [pc, #72]	; (8001178 <lecturaFSM_update+0xa0>)
  8001130:	2200      	movs	r2, #0
  8001132:	701a      	strb	r2, [r3, #0]
-            		//uartSendString((uint8_t *)"Temperature: ");
+            		uartSendString((uint8_t *)QMSG);
             		uartSendFloat(temperature);
             		uartSendString((uint8_t *)" C\r\n");
             	}
@@ -2258,7 +2256,7 @@ void i2c_init(I2C_HandleTypeDef *hi2c) {
  8001202:	687b      	ldr	r3, [r7, #4]
  8001204:	4a10      	ldr	r2, [pc, #64]	; (8001248 <i2c_init+0xb0>)
  8001206:	601a      	str	r2, [r3, #0]
-	hi2c->Init.Timing = 0x00503D5A; // Configuración de Timing para 400 kHz
+	hi2c->Init.Timing = 0x2010091A; // Configuración de Timing para 400 kHz
  8001208:	687b      	ldr	r3, [r7, #4]
  800120a:	4a10      	ldr	r2, [pc, #64]	; (800124c <i2c_init+0xb4>)
  800120c:	605a      	str	r2, [r3, #4]
@@ -2297,7 +2295,7 @@ void i2c_init(I2C_HandleTypeDef *hi2c) {
  8001240:	40023800 	.word	0x40023800
  8001244:	40020400 	.word	0x40020400
  8001248:	40005400 	.word	0x40005400
- 800124c:	00503d5a 	.word	0x00503d5a
+ 800124c:	2010091a 	.word	0x2010091a
 
 08001250 <i2c_read>:
 void i2c_read(I2C_HandleTypeDef *hi2c, uint8_t addr, uint8_t reg, uint8_t *data, uint16_t size) {
@@ -2446,7 +2444,7 @@ void uartSendFloat(float value) {
  8001338:	af02      	add	r7, sp, #8
  800133a:	ed87 0a01 	vstr	s0, [r7, #4]
     char buffer[32];
-    snprintf(buffer, sizeof(buffer), "%.2f", value); // Convertir el valor float a una cadena
+    snprintf(buffer, sizeof(buffer), "%.2f", value);
  800133e:	edd7 7a01 	vldr	s15, [r7, #4]
  8001342:	eeb7 7ae7 	vcvt.f64.f32	d7, s15
  8001346:	f107 0308 	add.w	r3, r7, #8
@@ -2455,7 +2453,7 @@ void uartSendFloat(float value) {
  8001350:	2120      	movs	r1, #32
  8001352:	4618      	mov	r0, r3
  8001354:	f003 fe66 	bl	8005024 <sniprintf>
-    uartSendString((uint8_t *)buffer); // Enviar la cadena a través de UART
+    uartSendString((uint8_t *)buffer);
  8001358:	f107 0308 	add.w	r3, r7, #8
  800135c:	4618      	mov	r0, r3
  800135e:	f7ff ffc5 	bl	80012ec <uartSendString>

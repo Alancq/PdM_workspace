@@ -41,8 +41,8 @@ void uartSendStringSize(uint8_t * pstring, uint16_t size) {
 
 void uartSendFloat(float value) {
     char buffer[32];
-    snprintf(buffer, sizeof(buffer), "%.2f", value); // Convertir el valor float a una cadena
-    uartSendString((uint8_t *)buffer); // Enviar la cadena a través de UART
+    snprintf(buffer, sizeof(buffer), "%.2f", value);
+    uartSendString((uint8_t *)buffer);
 }
 void uartReceiveStringSize(uint8_t * pstring, uint16_t size) {
 	assert(pstring != NULL);

@@ -10,9 +10,7 @@
 
 #include "main.h"
 
-// Dirección I2C del sensor MAX30205 y el registro de temperatura
-#define MAX30205_ADDRESS      0x48
-#define MAX30205_TEMP_REG     0x00
+
 
 // Declaraciones de funciones para inicializar el sensor MAX30205 y leer la temperatura
 uint8_t max30205_init(I2C_HandleTypeDef *hi2c);

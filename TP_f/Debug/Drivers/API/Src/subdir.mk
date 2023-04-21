@@ -6,16 +6,19 @@
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
 ../Drivers/API/Src/API_delay.c \
+../Drivers/API/Src/API_i2c.c \
 ../Drivers/API/Src/API_max30205.c \
 ../Drivers/API/Src/API_uart.c 
 
 OBJS += \
 ./Drivers/API/Src/API_delay.o \
+./Drivers/API/Src/API_i2c.o \
 ./Drivers/API/Src/API_max30205.o \
 ./Drivers/API/Src/API_uart.o 
 
 C_DEPS += \
 ./Drivers/API/Src/API_delay.d \
+./Drivers/API/Src/API_i2c.d \
 ./Drivers/API/Src/API_max30205.d \
 ./Drivers/API/Src/API_uart.d 
 
@@ -27,7 +30,7 @@ Drivers/API/Src/%.o Drivers/API/Src/%.su: ../Drivers/API/Src/%.c Drivers/API/Src
 clean: clean-Drivers-2f-API-2f-Src
 
 clean-Drivers-2f-API-2f-Src:
-	-$(RM) ./Drivers/API/Src/API_delay.d ./Drivers/API/Src/API_delay.o ./Drivers/API/Src/API_delay.su ./Drivers/API/Src/API_max30205.d ./Drivers/API/Src/API_max30205.o ./Drivers/API/Src/API_max30205.su ./Drivers/API/Src/API_uart.d ./Drivers/API/Src/API_uart.o ./Drivers/API/Src/API_uart.su
+	-$(RM) ./Drivers/API/Src/API_delay.d ./Drivers/API/Src/API_delay.o ./Drivers/API/Src/API_delay.su ./Drivers/API/Src/API_i2c.d ./Drivers/API/Src/API_i2c.o ./Drivers/API/Src/API_i2c.su ./Drivers/API/Src/API_max30205.d ./Drivers/API/Src/API_max30205.o ./Drivers/API/Src/API_max30205.su ./Drivers/API/Src/API_uart.d ./Drivers/API/Src/API_uart.o ./Drivers/API/Src/API_uart.su
 
 .PHONY: clean-Drivers-2f-API-2f-Src
 

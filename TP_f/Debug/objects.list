@@ -6,6 +6,7 @@
 "./Core/Src/system_stm32f7xx.o"
 "./Core/Startup/startup_stm32f767zitx.o"
 "./Drivers/API/Src/API_delay.o"
+"./Drivers/API/Src/API_i2c.o"
 "./Drivers/API/Src/API_max30205.o"
 "./Drivers/API/Src/API_uart.o"
 "./Drivers/BSP/stm32f7xx_nucleo_144.o"

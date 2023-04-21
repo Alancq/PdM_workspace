@@ -30,7 +30,6 @@ void i2c_init(I2C_HandleTypeDef *hi2c) {
 	//HAL_I2C_Init(hi2c); //inicializa con la configuracion especificada
 	if (HAL_I2C_Init(hi2c) != HAL_OK)
 	{
-
 		Error_Handler();
 	}
 }

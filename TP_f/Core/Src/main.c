@@ -19,9 +19,6 @@
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 #include "string.h"
-
-
-
 void SystemClock_Config(void);
 
 
@@ -32,34 +29,18 @@ int main(void)
 
 	/* Configure the system clock to 180 MHz */
 	SystemClock_Config();
+
 	if(!uartInit()) {
 			Error_Handler();
 		}
-	/* Initialize BSP Led for blue led (LED2) */
 
 	lecturaFSM_init();
 
-
-
 		while (1)
 		{
-			/*float temperature = max30205_read_temperature(&hi2c);
-			uartSendString((uint8_t *)"Temperature: ");
-			uartSendFloat(temperature);
-			uartSendString((uint8_t *)" C\r\n");*/
-			//HAL_Delay(1000);
-
-			//debounceFSM_update();
-
-			/* revisa si el boton fue apretado */
 			lecturaFSM_update();
-
 		}
 	}
-
-
-
-
 /**
   * @brief System Clock Configuration
   * @retval None

@@ -33,6 +33,7 @@ extern "C" {
 #include "API_delay.h"
 #include "API_uart.h"
 #include "API_max30205.h"
+#include "API_i2c.h"
 
 
 #define USARTx                           USART3

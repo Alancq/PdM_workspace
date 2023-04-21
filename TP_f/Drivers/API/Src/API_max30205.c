@@ -20,8 +20,7 @@
 #define QUIT 'q' //caracter para dejar de realizar la lectura y envio de la temperatrua por uart
 #define T_CONST 0.00390625f //temperatura constante multiplicador
 I2C_HandleTypeDef hi2c;
-
-
+static float temperature;
 // Variables para almacenar información de los tiempos de espera
 static delay_t delay;
 static delay_t delay2;
@@ -64,7 +63,7 @@ void lecturaFSM_update() {
     switch (currentState) {
         case IDLE_STATE:
             // Espera a que se reciba el comando 'p' para iniciar la lectura
-        	if (uartReceiveChar(&receivedChar)) {
+        	if (uartReceiveChar(&receivedChar) ) {
         		if (receivedChar ==PLAY) { //si el caracter ingresado es 'q' se va al estado READ_TEMPERATURE_STATE
         			currentState = READ_TEMPERATURE_STATE;
         		}
@@ -78,15 +77,22 @@ void lecturaFSM_update() {
         		if (receivedChar == QUIT) { 	//si se recibe el caracter QUIT 'q' retorna al primer estado IDLE_STATE
         			currentState = IDLE_STATE;
         		}
-            } else {
-            	if (delayRead(&delay)){
-            		float temperature = max30205_read_temperature(&hi2c);// Lee la temperatura del sensor MAX30205
-            		uartSendString((uint8_t *)QMSG);// Envía el mensaje "QMSG" por UART
-            		uartSendFloat(temperature);// Envía la temperatura por UART
-            		uartSendString((uint8_t *)" C\r\n");
-            	}
+        	} else {
+
+        		temperature = max30205_read_temperature(&hi2c);// Lee la temperatura del sensor MAX30205
+
+        		currentState=PRINT_TEMPERATURE; //cambia al estado PRINT_TEMPERATURE
+
             }
             break;
+        case PRINT_TEMPERATURE: //imprime por uart la temperatura
+        	if (delayRead(&delay)){
+        		uartSendString((uint8_t *)QMSG);// Envía el mensaje "QMSG" por UART
+        		uartSendFloat(temperature);// Envía la temperatura por UART
+        		uartSendString((uint8_t *)" C\r\n");
+        		currentState = READ_TEMPERATURE_STATE;
+        	}
+        	break;
 
         default:
         	// Estado por defecto, regresa al estado IDLE_STATE

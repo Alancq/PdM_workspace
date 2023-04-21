@@ -20,7 +20,8 @@ float max30205_read_temperature(I2C_HandleTypeDef *hi2c);
 void lecturaFSM_init();
 typedef enum {
     IDLE_STATE,
-    READ_TEMPERATURE_STATE
+    READ_TEMPERATURE_STATE,
+	PRINT_TEMPERATURE
 } lecturaFSM_state_t;
 
 // Variables estáticas para almacenar el estado actual de la FSM y el carácter recibido

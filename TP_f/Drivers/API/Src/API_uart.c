@@ -46,8 +46,8 @@ void uartSendStringSize(uint8_t * pstring, uint16_t size) {
 
 void uartSendFloat(float value) {
     char buffer[32];// Crea un buffer para almacenar el valor como string
-    snprintf(buffer, sizeof(buffer), "%.2f", value); // Convierte el valor float en un string con 2 decimales
-    uartSendString((uint8_t *)buffer);// Envía el valor convertido en string
+    snprintf(buffer, sizeof(buffer), "%.2f", value); // para convertir el valor float en un string con 2 decimales
+    uartSendString((uint8_t *)buffer);//
 }
 void uartReceiveStringSize(uint8_t * pstring, uint16_t size) {
 	assert(pstring != NULL);// Verifica que el puntero no sea nulo
